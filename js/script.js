@@ -16,6 +16,10 @@ quotes.push({
     source: 'Mahatma Gandhi'
 });
 quotes.push({
+    quote: 'Your vision will become clear only when you look into your heart ... Who looks outside, dreams. Who looks inside, awakens.',
+    source: 'Carl Gustav Jung'
+});
+quotes.push({
     quote: 'Part of the journey is the end.',
     source: 'Tony Stark',
     citation: 'Avengers: Endgame',
@@ -39,24 +43,45 @@ quotes.push({
     citation: 'Silicon Valley',
     year: '2014'
 });
-quotes.push({
-    quote: 'Your vision will become clear only when you look into your heart ... Who looks outside, dreams. Who looks inside, awakens.',
-    source: 'Carl Gustav Jung'
-});
 
 /***
- * `getRandomQuote` function
-***/
+ * `getRandomQuote` function to get one random Quote from the Quotes array
+ * @returns The Quote Object
+ */
 function getRandomQuote() {
-
+    return quotes[getRand()];
 }
 
+/***
+ * Returns a random number with max == quote count
+ * @returns random number
+ */
+function getRand() {
+    return Math.floor(Math.random() * quotes.length);
+}
 
 /***
  * `printQuote` function
 ***/
-
-
+function printQuote() {
+    // Get a Quote object
+    let quote = getRandomQuote();
+    // Add basic information without closing the paragraph yet
+    let htmlOutput = `<p class="quote"> ${quote.quote} </p>
+                      <p class="source"> ${quote.source}`;
+    //Check for citation property
+    if (quote.hasOwnProperty('citation')) {
+        htmlOutput += `<span class="citation"> ${quote.citation} </span>`;
+    }
+    //Check for source property
+    if (quote.hasOwnProperty('year')) {
+        htmlOutput += `<span class="year"> ${quote.year} </span>`;
+    }
+    // Close the paragraph
+    htmlOutput += '</p>';
+    // Print out the Quote
+    document.getElementById('quote-box').innerHTML = htmlOutput;
+}
 
 /***
  * click event listener for the print quote button
@@ -64,3 +89,27 @@ function getRandomQuote() {
 ***/
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
