@@ -17,6 +17,19 @@ const wisdomTag = 'Wisdom';
 const marvelComicsTag = 'Marvel Comics';
 const sciFiTag = 'SciFi';
 
+/***
+ * Color Array for backgrounds. Checked different color names on http://www.colors.commutercreative.com
+ */
+
+const colors = [
+    'aquamarine',
+    'burlywood',
+    'darkolivegreen',
+    'darkslategrey',
+    'MistyRose',
+    'Peru',
+    'DodgerBlue'
+];
 
 /***
  * `quotes` array
@@ -66,15 +79,24 @@ quotes.push({
  * @returns The Quote Object
  */
 function getRandomQuote() {
-    return quotes[getRand()];
+    return quotes[getRand(quotes.length)];
 }
 
 /***
- * Returns a random number with max == quote count
- * @returns random number
+ * Generates a random number with ceiling of [max]
+ * @param max ceiling
+ * @returns {number} the random number
  */
-function getRand() {
-    return Math.floor(Math.random() * quotes.length);
+function getRand(max) {
+    return Math.floor(Math.random() * max);
+}
+
+/**
+ * Returns random RGB for setting background color
+ * @returns {string}
+ */
+function generateRandomRGB() {
+    return colors[getRand(colors.length)];
 }
 
 /***
@@ -101,6 +123,8 @@ function printQuote() {
     htmlOutput += '</p>';
     // Print out the Quote
     document.getElementById('quote-box').innerHTML = htmlOutput;
+    // Change Background color (Googled for ways to change background, different sources)
+    document.body.style.background = generateRandomRGB();
 }
 
 /***
