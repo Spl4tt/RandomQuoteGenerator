@@ -18,7 +18,7 @@ const marvelComicsTag = 'Marvel Comics';
 const sciFiTag = 'SciFi';
 
 /***
- * Color Array for backgrounds. Checked different color names on http://www.colors.commutercreative.com
+ * Color Array for backgrounds. Picked fitting colors on http://www.colors.commutercreative.com
  */
 
 const colors = [
@@ -30,11 +30,6 @@ const colors = [
     'Peru',
     'DodgerBlue'
 ];
-
-/***
- * Set Interval Timer to automatically update quote every 10 seconds
- */
-setInterval(printQuote, 10000);
 
 /***
  * `quotes` array
@@ -97,7 +92,7 @@ function getRand(max) {
 }
 
 /**
- * Returns random RGB for setting background color
+ * Returns random RGB for setting background color reusing the getRand() function
  * @returns {string}
  */
 function generateRandomRGB() {
