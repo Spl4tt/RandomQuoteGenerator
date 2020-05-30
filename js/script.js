@@ -32,6 +32,11 @@ const colors = [
 ];
 
 /***
+ * Set Interval Timer to automatically update quote every 10 seconds
+ */
+setInterval(printQuote, 10000);
+
+/***
  * `quotes` array
 ***/
 const quotes = [];
