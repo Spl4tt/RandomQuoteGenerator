@@ -22,11 +22,11 @@ const sciFiTag = 'SciFi';
  */
 
 const colors = [
-    'aquamarine',
+    'DarkRed',
     'burlywood',
     'darkolivegreen',
     'darkslategrey',
-    'MistyRose',
+    'CadetBlue',
     'Peru',
     'DodgerBlue'
 ];
